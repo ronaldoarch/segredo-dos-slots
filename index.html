@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participe dos Sorteios no WhatsApp</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background: #0F0F0F;
+      color: #D4AF37;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    .container {
+      background: #333333;
+      border-radius: 28px;
+      padding: 48px 36px 36px 36px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37), 0 0 0 4px #D4AF3733;
+      max-width: 420px;
+      border: 2.5px solid #D4AF37;
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(2px);
+      animation: popin 1s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes popin {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .badge-gratis {
+      display: inline-block;
+      background: #D4AF37;
+      color: #0F0F0F;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 16px;
+      padding: 6px 18px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px #D4AF3755;
+      letter-spacing: 1px;
+      position: relative;
+      top: -8px;
+      left: 0;
+      z-index: 3;
+      border: 2px solid #fff;
+    }
+    h1 {
+      font-size: 2.1em;
+      margin-bottom: 10px;
+      color: #D4AF37;
+      font-weight: bold;
+      text-shadow: 0 2px 12px #A67C00, 0 0 8px #D4AF3799;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .subtitulo {
+      font-size: 1.15em;
+      color: #fff;
+      margin-bottom: 18px;
+      text-shadow: 0 1px 8px #0F0F0F99;
+    }
+    .desc {
+      font-size: 1.1em;
+      color: #fff;
+      margin-bottom: 18px;
+      text-shadow: 0 1px 8px #0F0F0F99;
+    }
+    .valor {
+      font-size: 2em;
+      color: #fff;
+      font-weight: bold;
+      margin: 8px 0 10px 0;
+      text-shadow: 0 2px 8px #A67C0099, 0 0 4px #D4AF37;
+      background: linear-gradient(90deg, #A67C00 40%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 4px #D4AF3755);
+      border-radius: 8px;
+      padding: 0 10px;
+      display: inline-block;
+    }
+    .cta {
+      display: inline-block;
+      background: linear-gradient(90deg, #A67C00 60%, #D4AF37 100%);
+      color: #0F0F0F;
+      padding: 20px 44px 20px 32px;
+      font-size: 22px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 24px 0 #A67C0055, 0 0 0 3px #D4AF3755;
+      margin-top: 22px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.5px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      animation: popin 1.2s 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .cta:hover {
+      background: linear-gradient(90deg, #D4AF37 60%, #A67C00 100%);
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: 0 8px 32px 0 #A67C0099, 0 0 0 4px #D4AF3799;
+    }
+    .cta .whatsapp-icon {
+      width: 38px;
+      vertical-align: middle;
+      margin-right: 10px;
+      filter: drop-shadow(0 0 6px #fff8);
+    }
+    .cta .arrow {
+      display: inline-block;
+      margin-left: 12px;
+      font-size: 1.2em;
+      vertical-align: middle;
+      animation: arrowmove 1s infinite alternate;
+    }
+    @keyframes arrowmove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(8px); }
+    }
+    .moedas {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      font-size: 3.2em;
+      color: #D4AF37;
+      filter: drop-shadow(0 0 16px #D4AF37cc);
+      animation: moedasparkle 2.5s infinite alternate;
+    }
+    @keyframes moedasparkle {
+      0% { filter: drop-shadow(0 0 8px #D4AF3788); }
+      100% { filter: drop-shadow(0 0 24px #D4AF37cc); }
+    }
+    .moeda1 { left: 7vw; top: 8vh; transform: rotate(-12deg); }
+    .moeda2 { right: 8vw; top: 18vh; transform: rotate(8deg); }
+    .moeda3 { left: 12vw; bottom: 13vh; transform: rotate(18deg); }
+    .moeda4 { right: 13vw; bottom: 8vh; transform: rotate(-8deg); }
+    .trevo {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      font-size: 2.7em;
+      color: #FF3CAC;
+      filter: drop-shadow(0 0 12px #FF3CACcc);
+      animation: trevoglow 2.2s infinite alternate;
+    }
+    @keyframes trevoglow {
+      0% { filter: drop-shadow(0 0 6px #FF3CAC88); }
+      100% { filter: drop-shadow(0 0 18px #FF3CACcc); }
+    }
+    .trevo1 { left: 18vw; top: 32vh; }
+    .trevo2 { right: 18vw; bottom: 22vh; }
+    @media (max-width: 600px) {
+      .container { padding: 24px 8px 18px 8px; max-width: 98vw; }
+      h1 { font-size: 1.3em; }
+      .valor { font-size: 1.2em; }
+      .cta { font-size: 1em; padding: 14px 18px 14px 12px; }
+      .cta .whatsapp-icon { width: 26px; }
+      .moedas, .trevo { font-size: 1.5em; }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3940050539552027');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3940050539552027&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+</head>
+<body>
+  <span class="moedas moeda1">💰</span>
+  <span class="moedas moeda2">💰</span>
+  <span class="moedas moeda3">💰</span>
+  <span class="moedas moeda4">💰</span>
+  <span class="trevo trevo1">☘️</span>
+  <span class="trevo trevo2">☘️</span>
+  <div class="container">
+    <span class="badge-gratis" style="display:none;"></span>
+    <h1>🎰 Descubra o segredo por trás dos slots!</h1>
+    <div class="subtitulo">Ganhe vantagem com estratégias exclusivas e aumente suas chances de vitória.</div>
+    <div class="desc">📥 Acesse agora e desbloqueie o que os cassinos não querem que você saiba!</div>
+    <a class="cta" href="https://t.me/segredodosslot" target="_blank">
+      ACESSE O SEGREDO AGORA
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</body>
+</html>
